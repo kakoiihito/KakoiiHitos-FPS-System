@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bk38lntg63jt6"]
+
+[ext_resource type="Script" uid="uid://c30m3mf4na75g" path="res://addons/kakoiihitosfpssystem/enemy/enemy.gd" id="1_vrvuo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uhnry"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ksnj"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uhnry"]
+material = SubResource("StandardMaterial3D_2ksnj")
+
+[node name="Enemy" type="Node3D" unique_id=358311645]
+script = ExtResource("1_vrvuo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=951247209]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1199879776]
+shape = SubResource("CapsuleShape3D_uhnry")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=752086476]
+mesh = SubResource("CapsuleMesh_uhnry")
