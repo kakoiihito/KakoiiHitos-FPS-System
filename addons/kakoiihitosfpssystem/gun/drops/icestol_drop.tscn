@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bvnpkrxmrddft"]
+
+[ext_resource type="Script" uid="uid://caoft8hpgmcx7" path="res://addons/kakoiihitosfpssystem/gun/drops/dropsystem.gd" id="1_861d8"]
+[ext_resource type="PackedScene" uid="uid://ddobu4v6rgu0e" path="res://addons/kakoiihitosfpssystem/gun/icestol.tscn" id="2_mqeby"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uhnry"]
+size = Vector3(0.25, 0.25, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhnry"]
+
+[node name="icestol_drop" type="Node3D" unique_id=1371246105 node_paths=PackedStringArray("area3D")]
+script = ExtResource("1_861d8")
+drop_gun = ExtResource("2_mqeby")
+area3D = NodePath("Area3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=931097598]
+mesh = SubResource("BoxMesh_uhnry")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=117080743]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1378580814]
+shape = SubResource("BoxShape3D_uhnry")

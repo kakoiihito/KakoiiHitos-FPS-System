@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://d1hkps7t10ahh"]
 
 [ext_resource type="Script" uid="uid://c66jfqay7srui" path="res://addons/kakoiihitosfpssystem/player/player.gd" id="1_6f3mi"]
+[ext_resource type="PackedScene" uid="uid://bolry6mjbee7y" path="res://addons/kakoiihitosfpssystem/player/crosshair.tscn" id="2_kwk6t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uhnry"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uhnry"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1925778648 node_paths=PackedStringArray("camera")]
+[node name="Player" type="CharacterBody3D" unique_id=1925778648 node_paths=PackedStringArray("camera") groups=["Player"]]
 script = ExtResource("1_6f3mi")
 camera = NodePath("Camera3D")
 
@@ -17,4 +18,8 @@ shape = SubResource("CapsuleShape3D_uhnry")
 mesh = SubResource("CapsuleMesh_uhnry")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=132901581]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49464628, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Crosshair" parent="." unique_id=1421431780 instance=ExtResource("2_kwk6t")]
+color_crosshair = Color(0, 1, 0, 1)
+length_crosshair = 0.0
