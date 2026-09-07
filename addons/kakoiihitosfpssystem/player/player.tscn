@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d1hkps7t10ahh"]
+
+[ext_resource type="Script" uid="uid://c66jfqay7srui" path="res://addons/kakoiihitosfpssystem/player/player.gd" id="1_6f3mi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uhnry"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uhnry"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1925778648 node_paths=PackedStringArray("camera")]
+script = ExtResource("1_6f3mi")
+camera = NodePath("Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=657073537]
+shape = SubResource("CapsuleShape3D_uhnry")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=927121107]
+mesh = SubResource("CapsuleMesh_uhnry")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=132901581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49464628, 0)
