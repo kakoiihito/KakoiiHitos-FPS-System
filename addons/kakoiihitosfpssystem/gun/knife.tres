@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GunData" format=3 uid="uid://eu34qd4dry28"]
+
+[ext_resource type="Script" uid="uid://swdgiv5du4oh" path="res://addons/kakoiihitosfpssystem/gun/reusable/gun_resource.gd" id="1_rea8v"]
+
+[resource]
+script = ExtResource("1_rea8v")
+damage = 50.0
+max_ammo_per_mag = inf
+starting_reserve_ammo = inf
+metadata/_custom_type_script = "uid://swdgiv5du4oh"

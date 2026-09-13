@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://chlcgv2fxylbw"]
+
+[ext_resource type="PackedScene" uid="uid://d1hkps7t10ahh" path="res://addons/kakoiihitosfpssystem/player/player.tscn" id="1_pn6pb"]
+[ext_resource type="PackedScene" uid="uid://bk38lntg63jt6" path="res://addons/kakoiihitosfpssystem/enemy/dummy.tscn" id="2_pdj2i"]
+[ext_resource type="PackedScene" uid="uid://bvnpkrxmrddft" path="res://addons/kakoiihitosfpssystem/gun/drops/icestol_drop.tscn" id="3_wiqm4"]
+[ext_resource type="PackedScene" uid="uid://bg5sthodxh46m" path="res://addons/kakoiihitosfpssystem/level/core_assets/door.tscn" id="4_op0yb"]
+[ext_resource type="PackedScene" uid="uid://crhclacajybpb" path="res://addons/kakoiihitosfpssystem/level/reusable_assets/room_1.tscn" id="5_1nrcs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uhnry"]
+size = Vector3(25, 1, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhnry"]
+size = Vector3(25, 1, 25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ksnj"]
+size = Vector3(1, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ksnj"]
+size = Vector3(1, 5, 5)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pn6pb"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_pdj2i"]
+sky_material = SubResource("ProceduralSkyMaterial_pn6pb")
+
+[sub_resource type="Environment" id="Environment_wiqm4"]
+background_mode = 2
+sky = SubResource("Sky_pdj2i")
+glow_enabled = true
+
+[node name="Baseplate" type="Node3D" unique_id=1624844065]
+
+[node name="Player" parent="." unique_id=1925778648 instance=ExtResource("1_pn6pb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51, 0)
+
+[node name="Enemy" parent="." unique_id=358311645 instance=ExtResource("2_pdj2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.005774, 1.5, -0.78018427)
+
+[node name="icestol_drop" parent="." unique_id=1371246105 instance=ExtResource("3_wiqm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14616156, 0.86818504, -6.422659)
+
+[node name="Scenery" type="Node3D" parent="." unique_id=623282100]
+
+[node name="Baseplate" type="MeshInstance3D" parent="Scenery" unique_id=1926306407]
+mesh = SubResource("BoxMesh_uhnry")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Baseplate" unique_id=1081044705]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Baseplate/StaticBody3D" unique_id=1208591441]
+shape = SubResource("BoxShape3D_uhnry")
+
+[node name="Wall0" type="MeshInstance3D" parent="Scenery" unique_id=923604995 groups=["Wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2173133, 2.4623075, 0.0142970085)
+mesh = SubResource("BoxMesh_2ksnj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Wall0" unique_id=864552955 groups=["Wall"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Wall0/StaticBody3D" unique_id=574777011 groups=["Wall"]]
+shape = SubResource("BoxShape3D_2ksnj")
+
+[node name="Door" parent="Scenery/Wall0/StaticBody3D" unique_id=712145515 instance=ExtResource("4_op0yb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2173133, -0.8822193, -0.0142970085)
+
+[node name="Environment" type="Node3D" parent="." unique_id=1197514417]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=844106257]
+environment = SubResource("Environment_wiqm4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=264236299]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="SmallRoom1" parent="." unique_id=191317683 instance=ExtResource("5_1nrcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.205612, 0, -1.6353807)

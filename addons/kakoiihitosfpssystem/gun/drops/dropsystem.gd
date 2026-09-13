@@ -1,16 +1,26 @@
-extends Node3D
+extends Area3D
 
 @export var drop_gun: PackedScene
+var collected: bool = false
+var can_collect: bool = false
+var player: CharacterBody3D
 
-@export var area3D: Area3D
-var collected: bool
-
+func _ready() -> void:
+	body_entered.connect(on_body_entered)
+	body_exited.connect(on_body_exited)
+	
 func _process(delta: float) -> void:
-	var overlapping_bodies = area3D.get_overlapping_areas()
-	for i in overlapping_bodies:
-		if i != null:
-			if i.is_in_group("Player"):
-				i.inventory.append((drop_gun))
-				collected = true
-	if collected == true:
-		queue_free()
+	if can_collect == true:
+		if Input.is_action_just_pressed("Use") and player != null:
+			player.inventory.append(drop_gun)
+			queue_free()
+
+func on_body_entered(body: CharacterBody3D):
+	if body.is_in_group("Player"):
+		can_collect = true
+		player = body
+		
+func on_body_exited(body: CharacterBody3D):
+	if body.is_in_group("Player"):
+		can_collect = false
+		player = null

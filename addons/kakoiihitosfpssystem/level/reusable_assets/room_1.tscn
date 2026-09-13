@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://crhclacajybpb"]
+
+[ext_resource type="PackedScene" uid="uid://bxr8lvst800w2" path="res://addons/kakoiihitosfpssystem/level/reusable_assets/small_wall_door.tscn" id="1_upb0m"]
+[ext_resource type="PackedScene" uid="uid://begrt66qqhiet" path="res://addons/kakoiihitosfpssystem/level/core_assets/small_wall.tscn" id="2_elk0c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uhnry"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cli56"]
+size = Vector3(10, 1, 10)
+
+[node name="SmallRoom1" type="Node3D" unique_id=191317683]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1020108028]
+mesh = SubResource("BoxMesh_uhnry")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=142366299]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=102341786]
+shape = SubResource("BoxShape3D_cli56")
+
+[node name="small_wall_door" parent="." unique_id=2079213956 instance=ExtResource("1_upb0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 1.5, 0)
+
+[node name="small_wall" parent="." unique_id=941962862 instance=ExtResource("2_elk0c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -4.5)
+
+[node name="small_wall2" parent="." unique_id=13068765 instance=ExtResource("2_elk0c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 4.5)
+
+[node name="small_wall3" parent="." unique_id=1285273559 instance=ExtResource("2_elk0c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.5, 2.5, 0)

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bxr8lvst800w2"]
+
+[ext_resource type="PackedScene" uid="uid://bg5sthodxh46m" path="res://addons/kakoiihitosfpssystem/level/core_assets/door.tscn" id="1_8jgrp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cli56"]
+size = Vector3(0.2, 4, 4.276367)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3k5y"]
+size = Vector3(0.2, 4, 4.276367)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2nqv4"]
+size = Vector3(0.2, 4, 4.0763855)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwgry"]
+size = Vector3(0.2, 4, 4.0763855)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ywtjf"]
+size = Vector3(0.2, 1.9682617, 1.9814453)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wfnpv"]
+size = Vector3(0.2, 1.9682617, 1.9814453)
+
+[node name="small_wall_door" type="Node3D" unique_id=2079213956]
+
+[node name="Door" parent="." unique_id=712145515 instance=ExtResource("1_8jgrp")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.01, 0)
+
+[node name="Side1" type="MeshInstance3D" parent="." unique_id=284560942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.488)
+mesh = SubResource("BoxMesh_cli56")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Side1" unique_id=1878141981 groups=["Wall"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side1/StaticBody3D" unique_id=59812736]
+shape = SubResource("BoxShape3D_l3k5y")
+
+[node name="Side2" type="MeshInstance3D" parent="." unique_id=1127172028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011117667, 0.99432683, -2.9568384)
+mesh = SubResource("BoxMesh_2nqv4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Side2" unique_id=1286861947 groups=["Wall"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side2/StaticBody3D" unique_id=969611546]
+shape = SubResource("BoxShape3D_lwgry")
+
+[node name="Side3" type="MeshInstance3D" parent="." unique_id=333991756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0164192, -0.49072266)
+mesh = SubResource("BoxMesh_ywtjf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Side3" unique_id=1856136869 groups=["Wall"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side3/StaticBody3D" unique_id=1400606467]
+shape = SubResource("BoxShape3D_wfnpv")
