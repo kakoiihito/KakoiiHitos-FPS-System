@@ -6,7 +6,7 @@ const AIR_DRAG = 100.0
 const JUMP_VELOCITY = 3.0
 const LEAN_ANGLES: Array[float] = [-15.0, 15.0]
 const LEAN_SPEED = 1.0
-const PUSH_FORCE = 0.02
+const PUSH_FORCE = 0.5
 
 var Camera_Sensitivity = 0.005
 

@@ -2,6 +2,15 @@
 
 [ext_resource type="Script" uid="uid://swdgiv5du4oh" path="res://addons/kakoiihitosfpssystem/gun/reusable/gun_resource.gd" id="1_rxmiy"]
 
+[sub_resource type="Animation" id="Animation_3vdy1"]
+
+[sub_resource type="Animation" id="Animation_4keai"]
+
+[sub_resource type="Animation" id="Animation_6gbts"]
+
 [resource]
 script = ExtResource("1_rxmiy")
+Reload_Animation = SubResource("Animation_3vdy1")
+Walk_Animation = SubResource("Animation_6gbts")
+Scope_Animation = SubResource("Animation_4keai")
 metadata/_custom_type_script = "uid://swdgiv5du4oh"

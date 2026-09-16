@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bg5sthodxh46m" path="res://addons/kakoiihitosfpssystem/level/core_assets/door.tscn" id="1_8jgrp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cli56"]
-size = Vector3(0.2, 4, 4.276367)
+size = Vector3(0.2, 4, 4.114258)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l3k5y"]
 size = Vector3(0.2, 4, 4.276367)
@@ -15,7 +15,7 @@ size = Vector3(0.2, 4, 4.0763855)
 size = Vector3(0.2, 4, 4.0763855)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ywtjf"]
-size = Vector3(0.2, 1.9682617, 1.9814453)
+size = Vector3(0.2, 1.9682617, 2.1835938)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wfnpv"]
 size = Vector3(0.2, 1.9682617, 1.9814453)
@@ -23,10 +23,10 @@ size = Vector3(0.2, 1.9682617, 1.9814453)
 [node name="small_wall_door" type="Node3D" unique_id=2079213956]
 
 [node name="Door" parent="." unique_id=712145515 instance=ExtResource("1_8jgrp")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.01, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.01, 0.1570803)
 
 [node name="Side1" type="MeshInstance3D" parent="." unique_id=284560942]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.488)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5690546)
 mesh = SubResource("BoxMesh_cli56")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Side1" unique_id=1878141981 groups=["Wall"]]
@@ -35,7 +35,7 @@ mesh = SubResource("BoxMesh_cli56")
 shape = SubResource("BoxShape3D_l3k5y")
 
 [node name="Side2" type="MeshInstance3D" parent="." unique_id=1127172028]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011117667, 0.99432683, -2.9568384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0045209825, 0.9753914, -3.0041938)
 mesh = SubResource("BoxMesh_2nqv4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Side2" unique_id=1286861947 groups=["Wall"]]
@@ -44,7 +44,7 @@ mesh = SubResource("BoxMesh_2nqv4")
 shape = SubResource("BoxShape3D_lwgry")
 
 [node name="Side3" type="MeshInstance3D" parent="." unique_id=333991756]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0164192, -0.49072266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0164192, -0.38964844)
 mesh = SubResource("BoxMesh_ywtjf")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Side3" unique_id=1856136869 groups=["Wall"]]

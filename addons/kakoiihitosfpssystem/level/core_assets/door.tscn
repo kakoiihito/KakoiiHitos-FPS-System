@@ -6,13 +6,13 @@
 size = Vector3(0.1, 2, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ksnj"]
-size = Vector3(0.1, 2, 0.13)
+size = Vector3(0.1, 2, 0.1443164)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ksnj"]
-size = Vector3(0.1, 2, 1.1)
+size = Vector3(0.1, 2, 1.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_uhnry"]
-size = Vector3(0.1, 2, 1.1)
+size = Vector3(0.1, 2, 1.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cli56"]
 size = Vector3(1, 2, 1)
@@ -31,6 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.271)
 shape = SubResource("BoxShape3D_uhnry")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorFrame" unique_id=69165946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00010743737)
 mesh = SubResource("BoxMesh_2ksnj")
 
 [node name="Door" type="RigidBody3D" parent="." unique_id=2062801680 groups=["Wall"]]
@@ -38,9 +39,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.35)
 mass = 11.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door" unique_id=507897235 groups=["Wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.059447736)
 shape = SubResource("BoxShape3D_2ksnj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Door" unique_id=388536997 groups=["Wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.10815108)
 mesh = SubResource("BoxMesh_uhnry")
 
 [node name="DoorOpenDetector" type="Area3D" parent="Door" unique_id=346221027]
@@ -49,7 +52,7 @@ mesh = SubResource("BoxMesh_uhnry")
 shape = SubResource("BoxShape3D_cli56")
 
 [node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=1936860134 groups=["Wall"]]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.21115825)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.19835483)
 node_a = NodePath("../Door")
 node_b = NodePath("../DoorFrame")
 angular_limit/enable = true

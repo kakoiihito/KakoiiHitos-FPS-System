@@ -3,17 +3,21 @@
 [ext_resource type="Script" uid="uid://b0y808kbbuf3v" path="res://addons/kakoiihitosfpssystem/gun/reusable/gun.gd" id="1_4kxtg"]
 [ext_resource type="Script" uid="uid://swdgiv5du4oh" path="res://addons/kakoiihitosfpssystem/gun/reusable/gun_resource.gd" id="2_3vdy1"]
 
+[sub_resource type="Animation" id="Animation_rxmiy"]
+
 [sub_resource type="Resource" id="Resource_4keai"]
 script = ExtResource("2_3vdy1")
+Reload_Animation = SubResource("Animation_rxmiy")
 metadata/_custom_type_script = "uid://swdgiv5du4oh"
 
 [sub_resource type="BoxMesh" id="BoxMesh_uhnry"]
 size = Vector3(0.25, 0.25, 0.6)
 
-[node name="Icestol" type="Node3D" unique_id=1402168297 node_paths=PackedStringArray("Raycast")]
+[node name="Icestol" type="Node3D" unique_id=1402168297 node_paths=PackedStringArray("Raycast", "Animation_Player")]
 script = ExtResource("1_4kxtg")
 GunValues = SubResource("Resource_4keai")
 Raycast = NodePath("RayCast3D")
+Animation_Player = NodePath("AnimationPlayer")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=693592974]
 target_position = Vector3(0, 0, -50)
@@ -21,3 +25,5 @@ target_position = Vector3(0, 0, -50)
 [node name="GunModel" type="MeshInstance3D" parent="." unique_id=1208702392]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.587, 0, -0.716)
 mesh = SubResource("BoxMesh_uhnry")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1133201137]
