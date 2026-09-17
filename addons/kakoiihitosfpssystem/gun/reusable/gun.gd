@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		reload()
 	if Input.is_action_pressed("Zoom"):
 			zoom()
-	
+			
 func deal_damage():
 	var collider = Raycast.get_collider()
 	if collider != null:
@@ -38,5 +38,4 @@ func reload():
 		reserve_ammo -= needed_ammo
 
 func zoom():
-	pass
-			
+	Animation_Player.play("scope_animation")

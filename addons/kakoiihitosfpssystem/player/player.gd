@@ -7,8 +7,10 @@ const JUMP_VELOCITY = 3.0
 const LEAN_ANGLES: Array[float] = [-15.0, 15.0]
 const LEAN_SPEED = 1.0
 const PUSH_FORCE = 0.5
+const DEFAULT_FOV = 75 
 
 var Camera_Sensitivity = 0.005
+var zoom_fov: float
 
 var is_sprinting: bool
 var stamina = 10.0
@@ -21,6 +23,7 @@ var inventory: Array[PackedScene]
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	zoom_fov = camera.fov/2
 
 func _physics_process(delta: float) -> void:
 
@@ -29,6 +32,10 @@ func _physics_process(delta: float) -> void:
 	physics_pushing(PUSH_FORCE)
 	gun_swap(inventory, melee_weapon)
 	lean_movement(LEAN_ANGLES, self, movement_detection_rays, delta, LEAN_SPEED)
+	
+	if Input.is_action_pressed("Zoom"):
+		camera.fov = zoom_fov
+	else: camera.fov = DEFAULT_FOV
 	
 func _unhandled_input(event: InputEvent) -> void: # Camera Movement
 	
