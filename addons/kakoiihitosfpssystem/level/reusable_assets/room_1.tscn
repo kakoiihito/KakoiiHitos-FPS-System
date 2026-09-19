@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crhclacajybpb"]
 
-[ext_resource type="PackedScene" uid="uid://bxr8lvst800w2" path="res://addons/kakoiihitosfpssystem/level/reusable_assets/small_wall_door.tscn" id="1_upb0m"]
+[ext_resource type="PackedScene" uid="uid://bxr8lvst800w2" path="res://addons/kakoiihitosfpssystem/level/core_assets/small_wall_door.tscn" id="1_upb0m"]
 [ext_resource type="PackedScene" uid="uid://begrt66qqhiet" path="res://addons/kakoiihitosfpssystem/level/core_assets/small_wall.tscn" id="2_elk0c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uhnry"]

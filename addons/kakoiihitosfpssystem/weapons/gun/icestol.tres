@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GunData" format=3 uid="uid://d3irwloyt5ees"]
 
-[ext_resource type="Script" uid="uid://swdgiv5du4oh" path="res://addons/kakoiihitosfpssystem/gun/reusable/gun_resource.gd" id="1_rxmiy"]
+[ext_resource type="Script" uid="uid://swdgiv5du4oh" path="res://addons/kakoiihitosfpssystem/weapons/gun/reusable/gun_resource.gd" id="1_rxmiy"]
 
 [sub_resource type="Animation" id="Animation_3vdy1"]
 

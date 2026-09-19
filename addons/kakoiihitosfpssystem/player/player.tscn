@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c66jfqay7srui" path="res://addons/kakoiihitosfpssystem/player/player.gd" id="1_6f3mi"]
 [ext_resource type="PackedScene" uid="uid://bolry6mjbee7y" path="res://addons/kakoiihitosfpssystem/player/crosshair.tscn" id="2_kwk6t"]
-[ext_resource type="PackedScene" uid="uid://duum45hvkh4mf" path="res://addons/kakoiihitosfpssystem/gun/knife.tscn" id="2_yru0p"]
+[ext_resource type="PackedScene" uid="uid://duum45hvkh4mf" path="res://addons/kakoiihitosfpssystem/weapons/gun/knife.tscn" id="2_yru0p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uhnry"]
 radius = 0.4

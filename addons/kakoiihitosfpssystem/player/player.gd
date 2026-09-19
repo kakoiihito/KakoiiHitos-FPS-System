@@ -12,14 +12,14 @@ const DEFAULT_FOV = 75
 var Camera_Sensitivity = 0.005
 var zoom_fov: float
 
-var is_sprinting: bool
-var stamina = 10.0
+var current_throwable_slot: int = 0
 
 @export var camera: Camera3D
 @export var movement_detection_rays: Array[RayCast3D]
 @export var melee_weapon: PackedScene
 
-var inventory: Array[PackedScene]
+var gun_inventory: Array[PackedScene]
+var throwable_inventory: Array[PackedScene]
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -30,9 +30,10 @@ func _physics_process(delta: float) -> void:
 	gravity(delta)
 	body_movement(SPEED, AIR_DRAG, JUMP_VELOCITY, delta, SPRINT_SPEED)
 	physics_pushing(PUSH_FORCE)
-	gun_swap(inventory, melee_weapon)
+	gun_swap(gun_inventory, camera)
+	melee_swap(melee_weapon, camera)
+	throwable_swap(throwable_inventory, camera)
 	lean_movement(LEAN_ANGLES, self, movement_detection_rays, delta, LEAN_SPEED)
-	
 	if Input.is_action_pressed("Zoom"):
 		camera.fov = zoom_fov
 	else: camera.fov = DEFAULT_FOV
@@ -89,27 +90,36 @@ func body_movement(speed: float, air_drag: float, jump_speed: float, delta: floa
 		
 	move_and_slide()
 	
-func gun_swap(inv: Array[PackedScene], melee: PackedScene):
+func gun_swap(gun_inv: Array[PackedScene], attachment: Node3D):
 	
 	var slots = ["Slot 1", "Slot 2"]
 		
 	# Regular Gun Swap
 	for i in range(slots.size()):
 		if Input.is_action_just_pressed(slots[i]):
-			if i < inv.size():
+			if i < gun_inv.size():
 				var slot_number = i
-				var gun_instance = inv[i].instantiate()
-				if camera.get_child(0) != null:
-					camera.get_child(0).queue_free()
-				camera.add_child(gun_instance)
+				var gun_instance = gun_inv[i].instantiate()
+				current_throwable_slot = 0
+				if attachment.get_child(0) != null:
+					attachment.get_child(0).queue_free()
+				attachment.add_child(gun_instance)
 	
-	# Melee Swap
+func melee_swap(melee: PackedScene, attachment: Node3D):
 	if Input.is_action_just_pressed("Melee Slot"):
 		if melee != null:
 			var melee_instance = melee.instantiate()
-			if camera.get_child(0) != null:
-				camera.get_child(0).queue_free()
-			camera.add_child(melee_instance)
+			current_throwable_slot = 0
+			if attachment.get_child(0) != null:
+				attachment.get_child(0).queue_free()
+			attachment.add_child(melee_instance)
+			
+
+func throwable_swap(throw_inv: Array[PackedScene], attachment: Node3D):
+	if Input.is_action_just_pressed("Grenade Swap"):
+		var throwable_instance = throw_inv[current_throwable_slot].instantiate()
+		current_throwable_slot += 1
+		add_child(throwable_instance)
 	
 func lean_movement(lean_angles: Array[float], lean_object: Node3D, rays: Array[RayCast3D], delta: float, lean_speed: float):
 	var target_angle = 0.0

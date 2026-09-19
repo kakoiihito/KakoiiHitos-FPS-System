@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bvnpkrxmrddft"]
 
-[ext_resource type="Script" uid="uid://caoft8hpgmcx7" path="res://addons/kakoiihitosfpssystem/gun/drops/dropsystem.gd" id="1_861d8"]
-[ext_resource type="PackedScene" uid="uid://ddobu4v6rgu0e" path="res://addons/kakoiihitosfpssystem/gun/icestol.tscn" id="2_mqeby"]
+[ext_resource type="Script" uid="uid://caoft8hpgmcx7" path="res://addons/kakoiihitosfpssystem/weapons/gun/drops/gun_drop_system.gd" id="1_861d8"]
+[ext_resource type="PackedScene" uid="uid://ddobu4v6rgu0e" path="res://addons/kakoiihitosfpssystem/weapons/gun/icestol.tscn" id="2_mqeby"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uhnry"]
 size = Vector3(0.25, 0.25, 0.5)

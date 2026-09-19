@@ -2,7 +2,6 @@ extends Node3D
 
 @export var GunValues: GunData
 @export var Raycast: RayCast3D
-@export var Animation_Player: AnimationPlayer
 
 var reserve_ammo: int
 var current_mag_ammo: int
@@ -19,8 +18,6 @@ func _process(delta: float) -> void:
 			current_mag_ammo -= 1
 	if Input.is_action_just_pressed("Reload"):
 		reload()
-	if Input.is_action_pressed("Zoom"):
-			zoom()
 			
 func deal_damage():
 	var collider = Raycast.get_collider()
@@ -36,6 +33,3 @@ func reload():
 	else:
 		current_mag_ammo += needed_ammo
 		reserve_ammo -= needed_ammo
-
-func zoom():
-	Animation_Player.play("scope_animation")

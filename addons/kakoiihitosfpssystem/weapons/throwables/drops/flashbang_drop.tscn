@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ch52le0son1mw"]
+
+[ext_resource type="Script" uid="uid://bow25o1b7w7ct" path="res://addons/kakoiihitosfpssystem/weapons/throwables/drops/throwable_drop_system.gd" id="1_1046s"]
+[ext_resource type="PackedScene" uid="uid://cf50j104af7vr" path="res://addons/kakoiihitosfpssystem/weapons/throwables/flashbang.tscn" id="2_oninn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uhnry"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhnry"]
+
+[node name="flashbang_drop" type="Area3D" unique_id=1256325697]
+script = ExtResource("1_1046s")
+drop_throwable = ExtResource("2_oninn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=362532709]
+mesh = SubResource("CylinderMesh_uhnry")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=524095559]
+shape = SubResource("BoxShape3D_uhnry")

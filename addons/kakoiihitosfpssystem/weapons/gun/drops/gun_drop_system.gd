@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if can_collect == true:
 		if Input.is_action_just_pressed("Use") and player != null:
-			player.inventory.append(drop_gun)
+			player.gun_inventory.append(drop_gun)
 			queue_free()
 
 func on_body_entered(body: CharacterBody3D):
