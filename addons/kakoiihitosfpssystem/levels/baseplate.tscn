@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://chlcgv2fxylbw"]
+
+[ext_resource type="PackedScene" uid="uid://d1hkps7t10ahh" path="res://addons/kakoiihitosfpssystem/player/player.tscn" id="1_pn6pb"]
+[ext_resource type="PackedScene" uid="uid://bk38lntg63jt6" path="res://addons/kakoiihitosfpssystem/enemy/enemy.tscn" id="2_pdj2i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pn6pb"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_pdj2i"]
+sky_material = SubResource("ProceduralSkyMaterial_pn6pb")
+
+[sub_resource type="Environment" id="Environment_wiqm4"]
+background_mode = 2
+sky = SubResource("Sky_pdj2i")
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_uhnry"]
+size = Vector3(25, 1, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhnry"]
+size = Vector3(25, 1, 25)
+
+[node name="Baseplate" type="Node3D" unique_id=1624844065]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=844106257]
+environment = SubResource("Environment_wiqm4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=264236299]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1926306407]
+mesh = SubResource("BoxMesh_uhnry")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1081044705]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1208591441]
+shape = SubResource("BoxShape3D_uhnry")
+
+[node name="Player" parent="." unique_id=1925778648 instance=ExtResource("1_pn6pb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51, 0)
+
+[node name="Enemy" parent="." unique_id=358311645 instance=ExtResource("2_pdj2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 6)
